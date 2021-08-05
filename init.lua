@@ -361,7 +361,9 @@ function Server:read()
     return message
   end
   local line = self.proc:read()
-  while not line:find('^Content%-Length: %d+$') do line = self.proc:read() end
+  if line then
+    while not line:find('^Content%-Length: %d+$') do line = self.proc:read() end
+  end
   local len = tonumber(line:match('%d+$'))
   while #line > 0 do line = self.proc:read() end -- skip other headers
   local data = self.proc:read(len)
