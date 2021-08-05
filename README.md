@@ -10,6 +10,8 @@ Install this module by copying it into your *~/.textadept/modules/* directory or
 
     local lsp = require('lsp')
 
+> This module requires the lua-only dkjson module to be available at `lsp/dkjson.lua` so download it to this location yourself from if you are not using the zip release or have cloned this repo to your local `.textadept/modules/lsp`
+
 You can then set up some language server commands. For example:
 
     lsp.server_commands.lua = 'lua-lsp'
